@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culculate Perimeter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        label, input, .result {
+            display: block;
+            margin: 10px 0;
+        }
+        input[type="number"] {
+            padding: 5px;
+            width: 200px;
+        }
+        .result {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Culculate Perimeter</h1>
+    <label for="length">Length:</label>
+    <input type="number" id="length" placeholder="Enter length" oninput="calculatePerimeter()">
+
+    <label for="width">Width:</label>
+    <input type="number" id="width" placeholder="Enter width" oninput="calculatePerimeter()">
+
+    <div class="result">Perimeter: <span id="perimeter">0</span></div>
+
+    <h2>Thanks for using the area Perimeter App</h2>
+
+    <script>
+        function calculatePerimeter() {
+            const length = parseFloat(document.getElementById("length").value) || 0;
+            const width = parseFloat(document.getElementById("width").value) || 0;
+
+            const perimeter = 2 * (length + width);
+            document.getElementById("perimeter").innerText = perimeter.toFixed(2);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Our List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+        form {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        label, input, button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        input {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: -8px;
+            margin-bottom: 10px;
+        }
+        .success {
+            color: green;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Please Join Our EMail List</h1>
+    <form id="subscriptionForm" onsubmit="return validateForm()">
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+        <label for="reenterEmail">Re-enter Email Address:</label>
+        <input type="email" id="reenterEmail" placeholder="Re-enter your email" required>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" placeholder="Enter your first name" required>
+        <button type="submit">Join Our List</button>
+        <p class="error" id="errorMessage"></p>
+        <p class="success" id="successMessage" style="display: none;">Thank you for joining our list!</p>
+    </form>
+
+    <script>
+        function validateForm() {
+            const email = document.getElementById("email").value.trim();
+            const reenterEmail = document.getElementById("reenterEmail").value.trim();
+            const firstName = document.getElementById("firstName").value.trim();
+            const errorMessage = document.getElementById("errorMessage");
+            const successMessage = document.getElementById("successMessage");
+
+            errorMessage.textContent = ""; 
+            successMessage.style.display = "none"; 
+
+            if (!email || !reenterEmail || !firstName) {
+                errorMessage.textContent = "This field is required.";
+                return false;
+            }
+
+            if (email !== reenterEmail) {
+                errorMessage.textContent = "Emails do not match";
+                return false;
+            }
+
+            successMessage.style.display = "block"; 
+            return false; 
+        }
+    </script>
+</body>
+</html>

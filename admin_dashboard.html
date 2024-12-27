@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <!-- <link rel="stylesheet" href="{% static 'styles.css' %}"> -->
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+
+    <h2>Add New Course</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Course</button>
+    </form>
+
+    <h2>Existing Courses</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Lecturer</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for course in courses %}
+                <tr>
+                    <td>{{ course.name }}</td>
+                    <td>{{ course.description }}</td>
+                    <td>{{ course.lecturer_name }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
