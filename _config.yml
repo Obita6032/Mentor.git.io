@@ -1,0 +1,8 @@
+# _config.yml
+source: mentorship/templates
+destination: _site
+exclude:
+  - /venv
+  - /vendor
+  - /migrations
+permalink: pretty
