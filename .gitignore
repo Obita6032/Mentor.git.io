@@ -11,3 +11,5 @@ __pycache__/
 _site/
 .jekyll-cache/
 .DS_Store
+
+venv/
